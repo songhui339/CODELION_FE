@@ -1,0 +1,264 @@
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 28px;
+    padding-top: 250px;
+}
+
+.main-wrapper .title-img {
+    position: absolute;
+    width: 386px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.select-cola,
+.my-info {
+    flex-basis: 360px;
+    height: 545px;
+}
+
+
+/* Left-Side 음료 선택 */
+.select-cola {
+    background-color: #fff;
+    padding: 31px 27px 28px 27px;
+}
+
+.select-cola .cola-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.select-cola .cola-list li {
+    width: 94px;
+    height: 130px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 11px 12px 9px 12px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+}
+
+/* 선택 했을 때 / hover 기능도 추가해봄 */
+.select-cola .cola-list li.active,
+.select-cola .cola-list li:not([class^="sold"]):hover {
+    outline: 3px solid #6327fe;
+    filter: none;
+}
+
+/* Sold-out */
+.select-cola .cola-list li.sold-out {
+    cursor: auto;
+}
+
+.select-cola .cola-list li.sold-out::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 10px;
+    background: url(../images/sold-out.png) no-repeat center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.select-cola .cola-list li .item-img {
+    width: 30px;
+}
+
+.select-cola .cola-list li .item-name {
+    font-size: 9px;
+    margin: 6px 0 7px;
+    display: block;
+}
+
+.select-cola .cola-list li .item-price {
+    display: block;
+    padding: 5px 15px;
+    font-size: 12px;
+    background-color: #6327fe;
+    border-radius: 50px;
+    color: #fff;
+}
+
+/* Left-Side 선택 및 금액 영역 */
+.order-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.order-info .balance-info,
+.order-info [class^="btn-"],
+.order-info input,
+.order-info .selected-cola-list {
+    border-radius: 5px;
+}
+
+.order-info [class^="btn-"] {
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.order-info .balance-info {
+    padding: 6px 10px;
+    background-color: #eae8fe;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.order-info .balance-info span {
+    float: right;
+}
+
+.order-info input {
+    padding: 6px;
+    border: 1px solid #bdbdbd;
+}
+
+.order-info .selected-cola-list {
+    height: 106px;
+    padding: 12px;
+    overflow-y: scroll;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    background-color: #eae8fe;
+}
+
+.order-info .selected-cola-list::-webkit-scrollbar,
+.my-info .my-cola .my-cola-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.order-info .selected-cola-list::-webkit-scrollbar-thumb,
+.my-info .my-cola .my-cola-list::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 50px;
+}
+
+.order-info .selected-cola-list li,
+.my-info .my-cola .my-cola-list li {
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    padding: 6px 10px;
+    background-color: #fff;
+}
+
+.order-info .selected-cola-list li:not(:first-of-type),
+.my-info .my-cola .my-cola-list li:not(:first-of-type) {
+    margin-top: 6px;
+}
+
+.order-info .selected-cola-list .item-img,
+.order-info .selected-cola-list .item-name,
+.my-info .my-cola .my-cola-list .item-img,
+.my-info .my-cola .my-cola-list .item-name {
+    float: left;
+}
+
+.order-info .selected-cola-list .item-img,
+.my-info .my-cola .my-cola-list .item-img {
+    width: 18px;
+    height: 32px;
+}
+
+.order-info .selected-cola-list .item-name,
+.my-info .my-cola .my-cola-list .item-name {
+    margin-left: 10px;
+    line-height: 32px;
+    font-size: 9px;
+}
+
+.order-info .selected-cola-list .item-num,
+.my-info .my-cola .my-cola-list .item-num {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+}
+
+.order-info .btn-submit {
+    background-color: #6327fe;
+    color: #fff;
+}
+
+/* Right-Side my-info */
+
+/* 소지금 */
+.my-info .my-cash {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 9px 27px;
+}
+
+.my-info .my-cash p {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    background-color: #eae8fe        ;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.my-info .my-cash p span {
+    float: right;
+}
+
+/* 획득한 음료 */
+.my-info .my-cola {
+    padding: 25px 27px;
+    background-color: #fff;
+}
+
+.my-info .my-cola h3 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #000;
+    margin-bottom: 13px;
+}
+
+.my-info .my-cola .my-cola-list {
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 12px;
+    overflow-y: scroll;
+    height: 364px;
+    background-color: #eae8fe;
+}
+
+.my-info .my-cola .total-price {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: right;
+    margin-top: 11px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .main-wrapper {
+        padding-top: 80px;
+    }
+    .main-wrapper .title-img {
+        width: 188px;
+    }
+}
